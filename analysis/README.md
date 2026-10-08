@@ -24,3 +24,28 @@ Side finding (logistic fit of s_i(t) on own previous state, friendly drive and u
 | politics (subjective) | 0.69 | 1.46 | 0.00 |
 
 Agents still move toward unfriendly neighbours on maths. On political statements, unfriendly ties have no effect.
+
+## perception_gap.py (2026-10-08)
+
+Question: how wrong would a purely local picture of the group be, and how checkable is a world model that a neighbour
+shares? Qwen3.5-9B, all released episodes.
+
+| Topic | Geometry | Mean degree | Overlap | Mean \|local − global\| share | Majority illusion | Illusion among minority-side agents |
+|---|---|---|---|---|---|---|
+| maths | random signed | 3.5 | 0.12 | 0.13 | 9 % | 19 % |
+| maths | square lattice | 3.2 | 0.00 | 0.14 | 11 % | 17 % |
+| maths | triangular lattice | 4.6 | 0.47 | 0.09 | 6 % | 43 % |
+| politics | random signed | 3.5 | 0.12 | 0.19 | 16 % | 27 % |
+| politics | square lattice | 3.2 | 0.00 | 0.17 | 14 % | 28 % |
+| politics | triangular lattice | 4.6 | 0.47 | 0.15 | 11 % | 50 % |
+
+- **Overlap:** for an edge i → j, the share of j's other neighbours that i also sees directly. It measures how much of
+  a shared world model the receiver can check against its own inbox.
+- **Majority illusion:** the agent's neighbourhood majority differs from the community majority.
+
+Readings:
+- A local view misjudges the group by 13–19 points on average, and is on the wrong side 6–16 % of the time.
+- In the triangular lattice, minorities form domains: about half of the minority-side agents see a local majority on
+  their own side.
+- The three geometries span verifiability from none (square, 0.00) to high (triangular, 0.47), with random signed
+  graphs in between (0.12).
